@@ -22,11 +22,14 @@ public class RuleRepository {
     }
 
     public Iterator<Question> getIterator() {
-
-        return null;
+        return new QuestionIterator();
     }
 
     public class QuestionIterator implements Iterator<Question> {
+        public QuestionIterator() {
+            
+        }
+
         @Override
         public boolean hasNext() {
 
