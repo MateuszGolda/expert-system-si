@@ -1,30 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Facts>
-    <Fact id="tesla">
-        <Description value="Tesla Model S"/>
+    <Fact id="python">
+        <Description value="Python"/>
         <Evals>
-            <Eval id="family">true</Eval>
-            <Eval id="money">true</Eval>
-            <Eval id="comfort">false</Eval>
-            <Eval id="luxury">true</Eval>
+            <Eval id="object oriented">true</Eval>
+            <Eval id="garbage collector">true</Eval>
+            <Eval id="static type checking">false</Eval>
         </Evals>
     </Fact>
-    <Fact id="mokka">
-        <Description value="Opel Mokka"/>
+
+    <Fact id="java">
+        <Description value="Java"/>
         <Evals>
-            <Eval id="family">true</Eval>
-            <Eval id="money">false</Eval>
-            <Eval id="comfort">false</Eval>
-            <Eval id="luxury">true</Eval>
+            <Eval id="object oriented">true</Eval>
+            <Eval id="garbage collector">true</Eval>
+            <Eval id="static type checking">true</Eval>
         </Evals>
     </Fact>
-    <Fact id="lada">
-        <Description value="Lada"/>
+
+    <Fact id="C++">
+        <Description value="C++"/>
         <Evals>
-            <Eval id="family">false</Eval>
-            <Eval id="money">false</Eval>
-            <Eval id="comfort">false</Eval>
-            <Eval id="luxury">false</Eval>
+            <Eval id="object oriented">true</Eval>
+            <Eval id="garbage collector">false</Eval>
+            <Eval id="static type checking">true</Eval>
+        </Evals>
+    </Fact>
+
+    <Fact id="Tcl">
+        <Description value="Tcl"/>
+        <Evals>
+            <Eval id="object oriented">true</Eval>
+            <Eval id="garbage collector">false</Eval>
+            <Eval id="static type checking">false</Eval>
+        </Evals>
+    </Fact>
+
+    <Fact id="Go">
+        <Description value="Go"/>
+        <Evals>
+            <Eval id="object oriented">false</Eval>
+            <Eval id="garbage collector">true</Eval>
+            <Eval id="static type checking">true</Eval>
+        </Evals>
+    </Fact>
+
+    <Fact id="C">
+        <Description value="C"/>
+        <Evals>
+            <Eval id="object oriented">false</Eval>
+            <Eval id="garbage collector">false</Eval>
+            <Eval id="static type checking">true</Eval>
+        </Evals>
+    </Fact>
+
+    <Fact id="Keg">
+        <Description value="Keg"/>
+        <Evals>
+            <Eval id="object oriented">false</Eval>
+            <Eval id="garbage collector">false</Eval>
+            <Eval id="static type checking">false</Eval>
+        </Evals>
+    </Fact>
+
+    <Fact id="Lisp">
+        <Description value="Keg"/>
+        <Evals>
+            <Eval id="object oriented">false</Eval>
+            <Eval id="garbage collector">true</Eval>
+            <Eval id="static type checking">false</Eval>
         </Evals>
     </Fact>
 </Facts>

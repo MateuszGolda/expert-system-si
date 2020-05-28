@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Rules>
-    <Rule id="money">
-        <Question>Do you have 20.000.000 HUF for a car?</Question>
+    <Rule id="object oriented">
+        <Question>Do you like object oriented programming?</Question>
         <Answer>
             <Selection value="true">
                 <SingleValue value="yes"/>
@@ -11,26 +11,29 @@
             </Selection>
         </Answer>
     </Rule>
-    <Rule id="comfort">
-        <Question>What is more important for you?</Question>
+
+    <Rule id="garbage collector">
+        <Question>Do you like garbage collector?</Question>
         <Answer>
             <Selection value="true">
-                <SingleValue value="comfort"/>
+                <SingleValue value="yes"/>
             </Selection>
             <Selection value="false">
-                <SingleValue value="speed"/>
+                <SingleValue value="no"/>
             </Selection>
         </Answer>
     </Rule>
-    <Rule id="luxury">
-        <Question>What feature is must-have for you?</Question>
+
+    <Rule id="static type checking">
+        <Question>Do you like static type checking?</Question>
         <Answer>
             <Selection value="true">
-                <MultipleValue value="gps,bluetooth,dvd,automatic transmission,self-driving"/>
+                <SingleValue value="yes"/>
             </Selection>
             <Selection value="false">
-                <MultipleValue value="nothing,abs,fog lights,central lock"/>
+                <SingleValue value="no"/>
             </Selection>
         </Answer>
     </Rule>
+
 </Rules>
