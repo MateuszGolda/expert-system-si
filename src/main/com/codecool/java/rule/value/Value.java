@@ -7,14 +7,14 @@ public abstract class Value {
     private final List<String> inputPattern;
     private final boolean selectionType;
 
-    public Value(String pattern, boolean selectionType) {
-        this.inputPattern = new ArrayList<>();
+    protected Value(String pattern, boolean selectionType) {
+        inputPattern = new ArrayList<>();
         inputPattern.add(pattern);
         this.selectionType = selectionType;
     }
 
-    public Value(List<String> patterns, boolean selectionType) {
-        this.inputPattern = patterns;
+    protected Value(List<String> patterns, boolean selectionType) {
+        inputPattern = patterns;
         this.selectionType = selectionType;
     }
 

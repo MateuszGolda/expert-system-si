@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.Set;
 
 public class Fact {
-    final String description;
-    final Map<String, Boolean> values;
+    private final String description;
+    private final Map<String, Boolean> values;
 
     Fact(String description) {
         this.description = description;

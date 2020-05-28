@@ -6,7 +6,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class FactParser extends XMLParser {
-    final FactRepository factRepository;
+    private final FactRepository factRepository;
 
     public FactParser(String xmlPath) {
         loadXmlDocument(xmlPath);
@@ -31,7 +31,7 @@ public class FactParser extends XMLParser {
             Fact fact = new Fact(elementDescription);
             setFactValues(fact, element);
 
-            this.factRepository.addFact(fact);
+            factRepository.addFact(fact);
         }
         return factRepository;
     }

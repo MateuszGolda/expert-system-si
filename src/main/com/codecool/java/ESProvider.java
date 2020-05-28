@@ -8,20 +8,20 @@ import main.com.codecool.java.rule.RuleParser;
 import java.util.*;
 
 public class ESProvider {
-    final Scanner sc;
-    final FactParser factParser;
-    final RuleParser ruleParser;
-    final Map<String, Boolean> userSelection;
+    private final Scanner sc;
+    private final FactParser factParser;
+    private final RuleParser ruleParser;
+    private final Map<String, Boolean> userSelection;
 
-    public ESProvider(FactParser factParser, RuleParser ruleParser) {
+    ESProvider(FactParser factParser, RuleParser ruleParser) {
         sc = new Scanner(System.in);
         this.factParser = factParser;
         this.ruleParser = ruleParser;
-        this.userSelection = new HashMap<>();
+        userSelection = new HashMap<>();
     }
 
-    public void collectAnswers() {
-        Iterator<Question> questionIterator = this.ruleParser.getRuleRepository().getIterator();
+    void collectAnswers() {
+        Iterator<Question> questionIterator = ruleParser.getRuleRepository().getIterator();
 
         while (questionIterator.hasNext()) {
             Question question = questionIterator.next();
@@ -29,12 +29,12 @@ public class ESProvider {
             System.out.println(question.getQuestion());
             boolean userAnswer = getAnswerByQuestion(question);
 
-            this.userSelection.put(questionId, userAnswer);
+            userSelection.put(questionId, userAnswer);
         }
         sc.close();
     }
 
-    public boolean getAnswerByQuestion(Question question) {
+    private boolean getAnswerByQuestion(Question question) {
         String userInput;
         boolean validInput = false;
         boolean answer = false;
@@ -50,9 +50,9 @@ public class ESProvider {
         return answer;
     }
 
-    public String evaluate() {
+    String evaluate() {
         String result = "";
-        Iterator<Fact> factIterator = this.factParser.getFactRepository().getIterator();
+        Iterator<Fact> factIterator = factParser.getFactRepository().getIterator();
         Fact fact;
         while (factIterator.hasNext()) {
             fact = factIterator.next();
@@ -65,9 +65,8 @@ public class ESProvider {
     }
 
     private boolean checkMatch(Set<String> idSet, Fact fact) {
-
         for (String id : idSet) {
-            if (fact.getValueById(id) != this.userSelection.get(id)) {
+            if (fact.getValueById(id) != userSelection.get(id)) {
                 return false;
             }
         }

@@ -9,12 +9,12 @@ import java.util.List;
 public class Answer {
     private final List<Value> values;
 
-    public Answer() {
-        this.values = new ArrayList<>();
+    Answer() {
+        values = new ArrayList<>();
     }
 
-    public boolean evaluateAnswerByInput(String input) {
-        for (Value value : this.values) {
+    boolean evaluateAnswerByInput(String input) {
+        for (Value value : values) {
             if (value.getInputPattern().contains(input)) {
                 return value.getSelectionType();
             }
@@ -22,7 +22,7 @@ public class Answer {
         throw new InputMismatchException();
     }
 
-    public void addValue(Value value) {
+    void addValue(Value value) {
         values.add(value);
     }
 }

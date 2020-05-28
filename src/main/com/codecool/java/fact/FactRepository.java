@@ -5,13 +5,13 @@ import java.util.Deque;
 import java.util.Iterator;
 
 public class FactRepository {
-    final Deque<Fact> facts;
+    private final Deque<Fact> facts;
 
     FactRepository() {
         facts = new ArrayDeque<>();
     }
 
-    public void addFact(Fact fact) {
+    void addFact(Fact fact) {
         facts.add(fact);
     }
 
@@ -19,10 +19,10 @@ public class FactRepository {
         return new FactIterator();
     }
 
-    public class FactIterator implements Iterator<Fact> {
-        final Deque<Fact> factsToIterate;
+    private class FactIterator implements Iterator<Fact> {
+        private final Deque<Fact> factsToIterate;
 
-        FactIterator() {
+        private FactIterator() {
             factsToIterate = facts;
         }
 

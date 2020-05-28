@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RuleParser extends XMLParser {
-    final RuleRepository ruleRepository;
+    private final RuleRepository ruleRepository;
 
     public RuleParser(String xmlPath) {
         loadXmlDocument(xmlPath);
@@ -37,7 +37,7 @@ public class RuleParser extends XMLParser {
             Answer answer = getAnswers(element);
 
             Question question = new Question(id, questionText, answer);
-            this.ruleRepository.addQuestion(question);
+            ruleRepository.addQuestion(question);
         }
         return ruleRepository;
     }

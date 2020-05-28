@@ -7,11 +7,11 @@ import java.util.Iterator;
 public class RuleRepository {
     private final Deque<Question> questions;
 
-    public RuleRepository() {
-        this.questions = new ArrayDeque<>();
+    RuleRepository() {
+        questions = new ArrayDeque<>();
     }
 
-    public void addQuestion(Question question) {
+    void addQuestion(Question question) {
         questions.add(question);
     }
 
@@ -19,10 +19,10 @@ public class RuleRepository {
         return new QuestionIterator();
     }
 
-    public class QuestionIterator implements Iterator<Question> {
-        final Deque<Question> questionsToIterate;
+    private class QuestionIterator implements Iterator<Question> {
+        private final Deque<Question> questionsToIterate;
 
-        QuestionIterator() {
+        private QuestionIterator() {
             questionsToIterate = questions;
         }
 

@@ -20,6 +20,6 @@ public class Question {
     }
 
     public boolean getEvaluatedAnswer(String input) {
-        return this.answer.evaluateAnswerByInput(input);
+        return answer.evaluateAnswerByInput(input);
     }
 }
