@@ -1,28 +1,31 @@
 package main.com.codecool.java.fact;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class Fact {
-    Fact(String id, String description) {
+    final String description;
+    final Map<String, Boolean> values;
 
+    Fact(String description) {
+        this.description = description;
+        values = new HashMap<>();
     }
 
     public Set<String> getIdSet() {
-
-        return null;
+        return values.keySet();
     }
 
-    public void setFactValueById(String id) {
-
+    void setFactValueById(String id, boolean value) {
+        values.put(id, value);
     }
 
     public boolean getValueById(String id) {
-
-        return false;
+        return values.get(id);
     }
 
     public String getDescription() {
-
-        return null;
+        return description;
     }
 }

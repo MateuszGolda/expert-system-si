@@ -1,7 +1,7 @@
 package main.com.codecool.java.rule.value;
 
 public class SingleValue extends Value {
-    SingleValue(String param, boolean selectionType) {
-
+    public SingleValue(String param, boolean selectionType) {
+        super(param, selectionType);
     }
 }

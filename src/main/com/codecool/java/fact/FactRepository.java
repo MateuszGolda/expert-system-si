@@ -1,28 +1,39 @@
 package main.com.codecool.java.fact;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Iterator;
 
 public class FactRepository {
-    public void addFact(Fact fact) {
+    final Deque<Fact> facts;
 
+    FactRepository() {
+        facts = new ArrayDeque<>();
+    }
+
+    public void addFact(Fact fact) {
+        facts.add(fact);
     }
 
     public Iterator<Fact> getIterator() {
-
-        return null;
+        return new FactIterator();
     }
 
     public class FactIterator implements Iterator<Fact> {
+        final Deque<Fact> factsToIterate;
+
+        FactIterator() {
+            factsToIterate = facts;
+        }
+
         @Override
         public boolean hasNext() {
-
-            return false;
+            return !factsToIterate.isEmpty();
         }
 
         @Override
         public Fact next() {
-
-            return null;
+            return factsToIterate.pop();
         }
     }
 }

@@ -1,27 +1,25 @@
 package main.com.codecool.java.rule;
 
 public class Question {
-    Question(String id, String question, Answer answer) {
+    private final String id;
+    private final String question;
+    private final Answer answer;
 
+    Question(String id, String question, Answer answer) {
+        this.id = id;
+        this.question = question;
+        this.answer = answer;
     }
 
     public String getId() {
-
-        return null;
+        return id;
     }
 
     public String getQuestion() {
-
-        return null;
-    }
-
-    public Answer getAnswer() {
-
-        return null;
+        return question;
     }
 
     public boolean getEvaluatedAnswer(String input) {
-
-        return false;
+        return this.answer.evaluateAnswerByInput(input);
     }
 }

@@ -1,36 +1,76 @@
 package main.com.codecool.java;
 
+import main.com.codecool.java.fact.Fact;
 import main.com.codecool.java.fact.FactParser;
-import main.com.codecool.java.fact.FactRepository;
-import main.com.codecool.java.rule.Answer;
 import main.com.codecool.java.rule.Question;
 import main.com.codecool.java.rule.RuleParser;
-import main.com.codecool.java.rule.RuleRepository;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ESProvider {
-    Map rules = new HashMap<Question, Answer>();
-    FactRepository factRepository;
-    RuleRepository ruleRepository;
+    final Scanner sc;
+    final FactParser factParser;
+    final RuleParser ruleParser;
+    final Map<String, Boolean> userSelection;
 
-    ESProvider(FactParser factParser, RuleParser ruleParser) {
-        factRepository = FactParser.getFactRepository();
-        ruleRepository = RuleParser.getRuleRepository();
+    public ESProvider(FactParser factParser, RuleParser ruleParser) {
+        sc = new Scanner(System.in);
+        this.factParser = factParser;
+        this.ruleParser = ruleParser;
+        this.userSelection = new HashMap<>();
     }
 
-    public void collectedAnswers() {
+    public void collectAnswers() {
+        Iterator<Question> questionIterator = this.ruleParser.getRuleRepository().getIterator();
 
+        while (questionIterator.hasNext()) {
+            Question question = questionIterator.next();
+            String questionId = question.getId();
+            System.out.println(question.getQuestion());
+            boolean userAnswer = getAnswerByQuestion(question);
+
+            this.userSelection.put(questionId, userAnswer);
+        }
+        sc.close();
     }
 
-    public boolean getAnswerByQuestion(String questionId) {
-
-        return false;
+    public boolean getAnswerByQuestion(Question question) {
+        String userInput;
+        boolean validInput = false;
+        boolean answer = false;
+        while (!validInput) {
+            userInput = sc.next();
+            try {
+                answer = question.getEvaluatedAnswer(userInput);
+                validInput = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Unrecognised answer, try again.");
+            }
+        }
+        return answer;
     }
 
     public String evaluate() {
+        String result = "";
+        Iterator<Fact> factIterator = this.factParser.getFactRepository().getIterator();
+        Fact fact;
+        while (factIterator.hasNext()) {
+            fact = factIterator.next();
+            if (!checkMatch(fact.getIdSet(), fact)) {
+                continue;
+            }
+            result = fact.getDescription();
+        }
+        return result;
+    }
 
-        return null;
+    private boolean checkMatch(Set<String> idSet, Fact fact) {
+
+        for (String id : idSet) {
+            if (fact.getValueById(id) != this.userSelection.get(id)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
